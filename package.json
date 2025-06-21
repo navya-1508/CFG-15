@@ -1,0 +1,22 @@
+{
+  "name": "cfg-15",
+  "version": "1.0.0",
+  "description": "Learning Platform",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && node server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install:all": "npm install && npm run install:client && npm run install:server",
+    "build": "cd client && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {}
+}
