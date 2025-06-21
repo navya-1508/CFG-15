@@ -32,23 +32,23 @@ export default function StudentData() {
             Upload ⏷
           </button>
           {showDropdown && (
-            <div className="absolute right-20 bg-white text-blue-900 border rounded shadow-md mt-2 py-2 z-10">
-              <Link
-                to="/upload-resource"
-                className="block px-4 py-2 hover:bg-blue-100"
-              >
+            <div className="absolute right-0 mt-2 w-48 bg-white border border-blue-200 rounded-lg shadow-lg z-50 p-2">
+                <Link
+                  to="/upload-resource"
+                  className="block px-4 py-2 rounded text-blue-800 hover:bg-blue-100 hover:text-blue-900"
+                >
                 Upload Resource
-              </Link>
-              <Link
-                to="/upload-session"
-                className="block px-4 py-2 hover:bg-blue-100"
-              >
+                </Link>
+                <Link
+                  to="/upload-session"
+                  className="block px-4 py-2 rounded text-blue-800 hover:bg-blue-100 hover:text-blue-900"
+                >
                 Upload Session
-              </Link>
-            </div>
-          )}
-
-          <Link to="/profile" className="hover:underline">
+                </Link>
+              </div>
+            )}
+          <Link to="/grievance" className="hover:underline">Grievance</Link>
+          <Link to="/trainerprofile" className="hover:underline">
             Profile
           </Link>
         </nav>
