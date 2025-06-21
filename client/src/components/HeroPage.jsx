@@ -41,7 +41,7 @@ export default function HeroPage() {
           <Link to="/about" className="hover:underline">
             About Us
           </Link>
-          <a href="#register" className="hover:underline">
+          <a href="/register" className="hover:underline">
             Register
           </a>
         </nav>

@@ -12,6 +12,8 @@ import SaathiDashboard from "./components/SaathiDashboard";
 import OneOnOne from "./components/OneOnOne";
 import DiscussionForum from "./components/DiscussionForum";
 import SaathiProfile from "./components/SaathiProfile";
+import ChampionDashboard from "./components/ChampionDashboard";
+import Registration from "./components/Registration";
 
 export default function App() {
   return (
@@ -31,6 +33,9 @@ export default function App() {
       <Route path="/discussionforum" element={<DiscussionForum />}/>
       <Route path="/saathiprofile" element={<SaathiProfile />}/> 
 
+
+      <Route path="/championdashboard" element={<ChampionDashboard/>}/>
+      <Route path="/register" element={<Registration/>}/>
 
     </Routes>
   );
