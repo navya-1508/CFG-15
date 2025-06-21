@@ -62,34 +62,37 @@ export default function TrainerDashboard() {
       {/* Navbar */}
       <header className="bg-blue-600 text-white flex justify-between items-center px-6 py-4 shadow-md">
         <div className="text-xl font-bold">💧 AquaWatch</div>
-        <nav className="space-x-6 relative">
+        <nav className="relative space-x-6 flex items-center">
           <Link to="/studentdata" className="hover:underline">StudentData</Link>
 
-          <button
-            onClick={() => setShowDropdown((prev) => !prev)}
-            className="hover:underline"
-          >
-            Upload ⏷
-          </button>
+          <div className="relative inline-block">
+            <button
+              onClick={() => setShowDropdown((prev) => !prev)}
+              className="hover:underline"
+            >
+              Upload ⏷
+            </button>
 
-          {showDropdown && (
-            <div className="absolute bg-white text-blue-900 border rounded shadow-md mt-2 py-2 z-50">
-              <Link
-                to="/upload-resource"
-                className="block px-4 py-2 hover:bg-blue-100"
-              >
+            {showDropdown && (
+              <div className="absolute right-0 mt-2 w-48 bg-white border border-blue-200 rounded-lg shadow-lg z-50 p-2">
+                <Link
+                  to="/upload-resource"
+                  className="block px-4 py-2 rounded text-blue-800 hover:bg-blue-100 hover:text-blue-900"
+                >
                 Upload Resource
-              </Link>
-              <Link
-                to="/upload-session"
-                className="block px-4 py-2 hover:bg-blue-100"
-              >
+                </Link>
+                <Link
+                  to="/upload-session"
+                  className="block px-4 py-2 rounded text-blue-800 hover:bg-blue-100 hover:text-blue-900"
+                >
                 Upload Session
-              </Link>
-            </div>
-          )}
+                </Link>
+              </div>
+            )}
+          </div>
 
-          <Link to="/profile" className="hover:underline">Profile</Link>
+          <Link to="/grievence" className="hover:underline">Grievance</Link>
+          <Link to="/trainerprofile" className="hover:underline">Profile</Link>
         </nav>
       </header>
 
@@ -102,7 +105,7 @@ export default function TrainerDashboard() {
         onClick={handleCourseClick}
       >
         <img
-          src="https://via.placeholder.com/300x180?text=Course+Image"
+          src="https://aqtros.com/wp-content/uploads/2021/07/Webp.net-resizeimage-1.jpg"
           alt="Course"
           className="rounded-t-xl w-full"
         />
