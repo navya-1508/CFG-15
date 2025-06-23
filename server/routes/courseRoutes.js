@@ -29,8 +29,6 @@ const router = express.Router();
 router.post("/create", authenticate, authorize(["admin"]), createCourse);
 router.get(
   "/",
-  authenticate,
-  authorize(["admin", "mentor", "trainer", "champion", "saathi"]),
   getAllCourses
 );
 router.get(
@@ -50,14 +48,10 @@ router.post(
 );
 router.get(
   "/:courseId/sessions",
-  authenticate,
-  authorize(["admin", "mentor", "trainer", "champion", "saathi"]),
   getSessionsByCourseId
 );
 router.get(
   "/session/:sessionId",
-  authenticate,
-  authorize(["admin", "mentor", "trainer", "champion", "saathi"]),
   getSessionById
 );
 router.put(

@@ -39,6 +39,19 @@ const sessionSchema = new mongoose.Schema(
               type: String,
               required: true,
             },
+            fileName: {
+              type: String, // Original filename for uploaded files
+            },
+            fileSize: {
+              type: Number, // Size in bytes
+            },
+            mimeType: {
+              type: String, // MIME type of the file
+            },
+            uploadedAt: {
+              type: Date,
+              default: Date.now,
+            },
             uploadedBy: {
               type: mongoose.Schema.Types.ObjectId,
               ref: "Teacher", // Trainer

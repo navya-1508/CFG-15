@@ -24,7 +24,6 @@ export default function Registration() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ❌ You had: !email  !password  !role  ...
     if (!email || !password || !role || (!isLogin && (!username || !confirmPassword))) {
       alert("❗️ All fields are required");
       return;
@@ -36,13 +35,13 @@ export default function Registration() {
     }
 
     const payload = isLogin
-      ? { email, password, role }
+      ? { username: email, password, role }
       : { username, email, password, role };
 
     const endpoint = isLogin ? "/login" : "/register";
 
     try {
-      const res = await fetch(`http://localhost:5000/api/auth${endpoint}`, {
+      const res = await fetch(`/api/auth${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -58,7 +57,23 @@ export default function Registration() {
 
       if (isLogin) {
         alert("✅ Login successful!");
-        navigate('/championDashboard');
+        switch (data.role) {
+          case "champion":
+            navigate("/championdashboard");
+            break;
+          case "saathi":
+            navigate("/saathidashboard");
+            break;
+          case "trainer":
+          case "mentor":
+            navigate("/trainerdashboard");
+            break;
+          case "admin":
+            navigate("/admin");
+            break;
+          default:
+            navigate("/");
+        }
       } else {
         alert("✅ Registration successful! Please log in.");
         setIsLogin(true);
@@ -72,6 +87,7 @@ export default function Registration() {
 
   return (
     <div className="flex min-h-screen">
+      {/* Left Side */}
       <div className="hidden md:flex w-1/2 bg-gradient-to-br from-blue-300 via-blue-200 to-blue-100 items-center justify-center relative overflow-hidden">
         <motion.div className="absolute w-64 h-64 bg-blue-100 opacity-40 rounded-full"
           animate={{ y: [0, 20, 0] }}
@@ -92,12 +108,12 @@ export default function Registration() {
         </motion.div>
       </div>
 
+      {/* Right Side (Form) */}
       <div className="w-full md:w-1/2 flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100">
         <div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-2xl p-8 w-80">
           <h2 className="text-2xl font-bold text-center mb-4">
             {isLogin ? 'Login' : 'Sign Up'}
           </h2>
-
           <AnimatePresence mode="wait">
             <motion.form
               key={isLogin ? 'login' : 'signup'}
@@ -143,6 +159,9 @@ export default function Registration() {
                   <option value="user">User</option>
                   <option value="champion">Champion</option>
                   <option value="saathi">Saathi</option>
+                  <option value="trainer">Trainer</option>
+                  <option value="mentor">Mentor</option>
+                  <option value="admin">Admin</option>
                 </select>
               </div>
 
