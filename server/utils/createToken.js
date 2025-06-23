@@ -10,7 +10,12 @@ const createToken = (res, userId, role) => {
     );
   }
 
-  const token = jwt.sign({ userId, role }, jwtSecret, {
+  console.log(`CreateToken: Creating JWT for userId: ${userId}, role: ${role}`);
+
+  // Make sure userId is a string
+  const userIdStr = String(userId);
+
+  const token = jwt.sign({ userId: userIdStr, role }, jwtSecret, {
     expiresIn: "1d",
   });
 

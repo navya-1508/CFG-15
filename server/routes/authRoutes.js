@@ -9,6 +9,8 @@ router.post('/register', registerUser);
 router.post('/login', login);
 router.post('/logout', authenticate, logout);
 
+
+
 // Protected routes - Admin only
 router.post('/register-teacher', authenticate, authorize(['admin']), registerTeacher);
 

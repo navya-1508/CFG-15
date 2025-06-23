@@ -19,6 +19,22 @@ const progressSchema = new mongoose.Schema(
     completedOn: {
       type: Date,
     },
+    videoDetails: {
+      videoId: {
+        type: String,
+      },
+      watched: {
+        type: Boolean,
+        default: false,
+      },
+      watchDuration: {
+        type: Number, // in seconds
+        default: 0,
+      },
+      watchedOn: {
+        type: Date,
+      },
+    },
   },
   { timestamps: true }
 );
